@@ -1,59 +1,68 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+Installation Process
+This guide provides the steps required to set up and run the Laravel project locally from the repository.
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Prerequisites
+Before proceeding, ensure your local development environment meets the following requirements:
 
-## About Laravel
+*PHP: Version 8.0 or higher (Required for Laravel 9+)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+*Composer: The latest version of the PHP dependency manager.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+*Git: Necessary for cloning the project repository.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+*Database Server: MySQL
 
-## Learning Laravel
+Getting Started
+1. Clone the Repository
+Clone the project source code from the repository using Git:
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+git clone https://github.com/proyecto 
+Repository name: https://github.com/mariavictoriacontreras/dev_test.git
+cd <your-project-folder>
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+2. Install PHP Dependencies
+Install all the project dependencies defined in composer.json:
+-> composer install
 
-## Laravel Sponsors
+3. Environment Configuration
+The project uses an environment file (.env) for database credentials and unique application key.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+-Create Environment File: Copy the example file to create your local configuration file:
 
-### Premium Partners
+.env .example
+as 
+.env
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+-Generate Application Key: Generate a unique application key for security purposes:
 
-## Contributing
+->php artisan key:generate
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+4. Database Setup
+Edit the newly created .env file and configure your local database connection details 
 
-## Code of Conduct
+DB_CONNECTION=mysql
+# DB_HOST=127.0.0.1
+# DB_PORT=3306
+DB_DATABASE=dev_test
+# DB_USERNAME=root
+# DB_PASSWORD=
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Update the DB_DATABASE, DB_USERNAME, and DB_PASSWORD variables to match your local database settings.
 
-## Security Vulnerabilities
+5. Data Import
+Important Note on Initial Data: Although the repository contains the necessary Laravel migrations and seeders (database/migrations and database/seeders), for logistical simplicity and to guarantee all initial system data (roles, default settings, etc.) is correctly configured, we recommend using the provided database backup file instead.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Located in this repository as:
 
-## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Data Import Steps:
+Create the Database: Use the database management tool MySQL Workbench to create an empty database matching the name specified in the DB_DATABASE=dev_test variable in your .env file.
+This step will create all necessary tables and insert the required initial records.
+
+6. Running the Application
+Finally, start the Laravel development server to access the application in your browser:
+
+Bash
+
+php artisan serve
+The application will be accessible at http://127.0.0.1:8000 (or the port indicated in your console).
