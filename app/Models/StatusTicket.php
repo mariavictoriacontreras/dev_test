@@ -1,0 +1,19 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class StatusTicket extends Model
+{
+    protected $table = 'status_ticket';
+    
+    protected $primaryKey = 'idStatusTicket';
+
+    protected $fillable = ['description'];
+    
+    public function tickets()
+    {
+        return $this->hasMany(Ticket::class, 'status_id');
+    }
+}
