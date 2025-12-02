@@ -12,11 +12,10 @@ Before proceeding, ensure your local development environment meets the following
 
 *Database Server: MySQL
 
-Getting Started
 1. Clone the Repository
 Clone the project source code from the repository using Git:
 
-git clone https://github.com/proyecto 
+git clone https://github.com/project 
 Repository name: https://github.com/mariavictoriacontreras/dev_test.git
 cd <your-project-folder>
 
@@ -33,7 +32,7 @@ The project uses an environment file (.env) for database credentials and unique 
 as 
 .env
 
--Generate Application Key: Generate a unique application key for security purposes:
+-Generate Application Key: Generate a unique application key for security purposes
 
 ->php artisan key:generate
 
@@ -47,13 +46,13 @@ DB_DATABASE=dev_test
 # DB_USERNAME=root
 # DB_PASSWORD=
 
-Update the DB_DATABASE, DB_USERNAME, and DB_PASSWORD variables to match your local database settings.
+Update the DB_USERNAME and DB_PASSWORD variables to match your local database settings.
 
 5. Data Import
 Important Note on Initial Data: Although the repository contains the necessary Laravel migrations and seeders (database/migrations and database/seeders), for logistical simplicity and to guarantee all initial system data (roles, default settings, etc.) is correctly configured, we recommend using the provided database backup file instead.
 
 Located in this repository as:
-
+https://github.com/mariavictoriacontreras/dev_test/blob/main/database/backup/dev_test_data.rar
 
 Data Import Steps:
 Create the Database: Use the database management tool MySQL Workbench to create an empty database matching the name specified in the DB_DATABASE=dev_test variable in your .env file.
